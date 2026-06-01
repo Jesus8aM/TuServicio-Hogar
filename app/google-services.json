@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "668342237288",
+    "project_id": "tuservicio-hogar-1b2d3",
+    "storage_bucket": "tuservicio-hogar-1b2d3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668342237288:android:dbf17aa9f80cf232f423dd",
+        "android_client_info": {
+          "package_name": "com.example.tuserviciohogar"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-gr8dAB7acRyJJkGYbPOGSz6WnuMtJe8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

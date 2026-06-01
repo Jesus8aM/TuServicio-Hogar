@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_tec_home"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Inicio" />
+        <item
+            android:id="@+id/nav_tec_solicitudes"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Solicitudes" />
+        <item
+            android:id="@+id/nav_tec_servicio_activo"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Servicio Activo" />
+        <item
+            android:id="@+id/nav_tec_servicios"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Mis Servicios" />
+        <item
+            android:id="@+id/nav_tec_perfil"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Mi Perfil" />
+        <item
+            android:id="@+id/nav_tec_mapa"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Mapa"
+            android:visible="false" />
+    </group>
+
+</menu>

@@ -7,37 +7,206 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.myapplicationferia.ui.home.HomeFragment"
+        android:name="com.example.tuserviciohogar.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.myapplicationferia.ui.gallery.GalleryFragment"
+        android:name="com.example.tuserviciohogar.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_slideshow"
-        android:name="com.example.myapplicationferia.ui.slideshow.SlideshowFragment"
+        android:name="com.example.tuserviciohogar.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
 
     <fragment
         android:id="@+id/webViewFragment"
-        android:name="com.example.myapplicationferia.ui.home.WebViewFragment"
+        android:name="com.example.tuserviciohogar.ui.home.WebViewFragment"
         android:label="Web View"
         tools:layout="@layout/fragment_webview" />
 
     <fragment
         android:id="@+id/imageFragment"
-        android:name="com.example.myapplicationferia.ui.home.ImageFragment"
+        android:name="com.example.tuserviciohogar.ui.home.ImageFragment"
         android:label="Imagen"
         tools:layout="@layout/fragment_image" />
 
     <fragment
         android:id="@+id/fechasImportantesFragment"
-        android:name="com.example.myapplicationferia.ui.home.FechasImportantesFragment"
+        android:name="com.example.tuserviciohogar.ui.home.FechasImportantesFragment"
         android:label="Fechas Importantes" />
 
+    <fragment
+        android:id="@+id/nav_select_role"
+        android:name="com.example.tuserviciohogar.ui.auth.SelectRoleFragment"
+        android:label="Ingresar"
+        tools:layout="@layout/fragment_select_role">
+        <action
+            android:id="@+id/action_selectRole_to_login"
+            app:destination="@id/nav_login" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_login"
+        android:name="com.example.tuserviciohogar.ui.auth.LoginFragment"
+        android:label="Iniciar Sesión"
+        tools:layout="@layout/fragment_login">
+        <argument
+            android:name="role"
+            app:argType="string"
+            android:defaultValue="cliente" />
+        <action
+            android:id="@+id/action_login_to_register"
+            app:destination="@id/nav_register" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_register"
+        android:name="com.example.tuserviciohogar.ui.auth.RegisterFragment"
+        android:label="Registro"
+        tools:layout="@layout/fragment_register">
+        <argument
+            android:name="role"
+            app:argType="string"
+            android:defaultValue="cliente" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_map"
+        android:name="com.example.tuserviciohogar.ui.map.MapFragment"
+        android:label="Mapa"
+        tools:layout="@layout/fragment_map">
+        <action
+            android:id="@+id/action_map_to_pago"
+            app:destination="@id/nav_pago" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_pago"
+        android:name="com.example.tuserviciohogar.ui.map.PagoFragment"
+        android:label="Confirmar solicitud"
+        tools:layout="@layout/fragment_pago">
+        <argument
+            android:name="direccion"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="descripcion"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="domicilioLat"
+            app:argType="float"
+            android:defaultValue="0" />
+        <argument
+            android:name="domicilioLon"
+            app:argType="float"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_pago_to_viaje"
+            app:destination="@id/nav_viaje" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_viaje"
+        android:name="com.example.tuserviciohogar.ui.map.ViajeFragment"
+        android:label="Solicitud enviada"
+        tools:layout="@layout/fragment_viaje">
+        <argument
+            android:name="metodoPago"
+            app:argType="string"
+            android:defaultValue="Efectivo" />
+        <argument
+            android:name="descripcion"
+            app:argType="string"
+            android:defaultValue="" />
+        <argument
+            android:name="domicilioLat"
+            app:argType="float"
+            android:defaultValue="0" />
+        <argument
+            android:name="domicilioLon"
+            app:argType="float"
+            android:defaultValue="0" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_tec_solicitudes"
+        android:name="com.example.tuserviciohogar.ui.tecnico.TecSolicitudesFragment"
+        android:label="Solicitudes"
+        tools:layout="@layout/fragment_tec_solicitudes" />
+
+    <fragment
+        android:id="@+id/nav_tec_mapa"
+        android:name="com.example.tuserviciohogar.ui.tecnico.TecMapaFragment"
+        android:label="Mapa"
+        tools:layout="@layout/fragment_tec_mapa" />
+
+    <fragment
+        android:id="@+id/nav_tec_servicios"
+        android:name="com.example.tuserviciohogar.ui.tecnico.TecServiciosFragment"
+        android:label="Mis Servicios"
+        tools:layout="@layout/fragment_tec_servicios" />
+
+    <fragment
+        android:id="@+id/nav_tec_perfil"
+        android:name="com.example.tuserviciohogar.ui.tecnico.TecPerfilFragment"
+        android:label="Mi Perfil"
+        tools:layout="@layout/fragment_tec_perfil" />
+
+    <fragment
+        android:id="@+id/nav_tec_home"
+        android:name="com.example.tuserviciohogar.ui.tecnico.TecHomeFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_tec_home" />
+
+    <argument
+        android:name="solicitudId"
+        app:argType="string"
+        android:defaultValue="" />
+
+    <fragment
+        android:id="@+id/nav_home_guest"
+        android:name="com.example.tuserviciohogar.ui.home.HomeGuestFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_home_guest">
+        <action
+            android:id="@+id/action_guest_to_login"
+            app:destination="@id/nav_login" />
+        <action
+            android:id="@+id/action_guest_to_select_role"
+            app:destination="@id/nav_select_role" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_tec_servicio_activo"
+        android:name="com.example.tuserviciohogar.ui.tecnico.TecServicioActivoFragment"
+        android:label="Servicio Activo"
+        tools:layout="@layout/fragment_tec_servicio_activo" />
+
+    <fragment
+        android:id="@+id/nav_servicio_en_curso"
+        android:name="com.example.tuserviciohogar.ui.map.ServicioEnCursoFragment"
+        android:label="Servicio en curso"
+        tools:layout="@layout/fragment_servicio_en_curso">
+        <argument
+            android:name="solicitudId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_evaluacion_servicio"
+        android:name="com.example.tuserviciohogar.ui.map.EvaluacionServicioFragment"
+        android:label="Evaluación"
+        tools:layout="@layout/fragment_evaluacion_servicio">
+        <argument
+            android:name="solicitudId"
+            app:argType="string"
+            android:defaultValue="" />
+    </fragment>
 </navigation>

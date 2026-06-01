@@ -1,330 +1,273 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment">
+    android:background="#F5F5F5">
 
     <LinearLayout
-        android:id="@+id/containerCards"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:orientation="vertical">
 
-        <!-- Título grande arriba -->
+        <!-- Banner de bienvenida -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="start"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="1dp">
-
-            <ImageView
-                android:id="@+id/imageFeria"
-                android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:layout_marginEnd="10dp"
-                 />
+            android:layout_height="180dp"
+            android:background="#1565C0"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="24dp">
 
             <TextView
-                android:id="@+id/titleNaves"
+                android:id="@+id/tvSaludo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=""
-                android:textColor="#800080"
-                android:textSize="28sp"
-                android:textStyle="bold"/>
+                android:text="¡Bienvenido!"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="¿Qué servicio necesitas hoy?"
+                android:textColor="#BBDEFB"
+                android:textSize="16sp"/>
+
         </LinearLayout>
 
-        <!-- Empiezan las card-->
+        <!-- Botón principal solicitar servicio -->
         <LinearLayout
-            android:id="@+id/card1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnSolicitarServicio"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="📍 Solicitar servicio ahora"
+                android:textSize="16sp"
+                android:backgroundTint="#1565C0"/>
+
+        </LinearLayout>
+
+        <!-- Título categorías -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categorías de servicio"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="12dp"/>
+
+        <!-- Grid de categorías -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="8dp">
+
+            <!-- Plomería -->
+            <LinearLayout
+                android:id="@+id/cardPlomeria"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/rounded_card_background"
+                android:elevation="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔧"
+                    android:textSize="32sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Plomería"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- Electricidad -->
+            <LinearLayout
+                android:id="@+id/cardElectricidad"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/rounded_card_background"
+                android:elevation="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡"
+                    android:textSize="32sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Electricidad"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- Carpintería -->
+            <LinearLayout
+                android:id="@+id/cardCarpinteria"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/rounded_card_background"
+                android:elevation="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🪵"
+                    android:textSize="32sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Carpintería"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- Pintura -->
+            <LinearLayout
+                android:id="@+id/cardPintura"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/rounded_card_background"
+                android:elevation="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎨"
+                    android:textSize="32sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pintura"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- Cerrajería -->
+            <LinearLayout
+                android:id="@+id/cardCerrajeria"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/rounded_card_background"
+                android:elevation="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔑"
+                    android:textSize="32sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cerrajería"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- Aire Acondicionado -->
+            <LinearLayout
+                android:id="@+id/cardAire"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/rounded_card_background"
+                android:elevation="4dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="❄️"
+                    android:textSize="32sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Aire Acond."
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </GridLayout>
+
+        <!-- Título servicios recientes -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Servicios recientes"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="12dp"/>
+
+        <!-- Placeholder servicios recientes -->
+        <LinearLayout
+            android:id="@+id/layoutSinServicios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="12dp"
-            android:layout_margin="8dp"
-            android:gravity="start"
-            android:clipToPadding="false"
-            android:elevation="4dp"
-            android:background="@drawable/rounded_card_background">
-
-            <!-- Contenedor horizontal con imagen y textos -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <!-- Imagen -->
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginEnd="12dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo_feria"
-                        android:scaleType="centerCrop"/>
-                </androidx.cardview.widget.CardView>
-
-
-                <!-- Título y descripción -->
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NAVE 1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonCard1"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:text="Mas"
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="12dp"
-                android:layout_gravity="center_vertical"
-                android:textAllCaps="false"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/card2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp"
-            android:layout_margin="8dp"
-            android:gravity="start"
-            android:clipToPadding="false"
-            android:elevation="4dp"
-            android:background="@drawable/rounded_card_background">
+            android:gravity="center"
+            android:padding="32dp">
 
             <LinearLayout
+                android:id="@+id/layoutHistorial"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginEnd="12dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo_feria"
-                        android:scaleType="centerCrop"/>
-                </androidx.cardview.widget.CardView>
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NAVE 2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonCard2"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:text="Mas"
-
-
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="12dp"
-                android:layout_gravity="center_vertical"
-                android:textAllCaps="false"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/card3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp"
-            android:layout_margin="8dp"
-            android:gravity="start"
-            android:clipToPadding="false"
-            android:elevation="4dp"
-            android:background="@drawable/rounded_card_background">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:visibility="gone"/>
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:text="🔍"
+                android:textSize="48sp"
+                android:layout_marginBottom="8dp"/>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginEnd="12dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo_feria"
-                        android:scaleType="centerCrop"/>
-                </androidx.cardview.widget.CardView>
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="NAVE 3"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonCard3"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:text="Mas"
-
-
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="12dp"
-                android:layout_gravity="center_vertical"
-                android:textAllCaps="false"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/card4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="12dp"
-            android:layout_margin="8dp"
-            android:gravity="start"
-            android:clipToPadding="false"
-            android:elevation="4dp"
-            android:background="@drawable/rounded_card_background">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:text="Aún no tienes servicios"
+                android:textSize="16sp"
+                android:alpha="0.5"/>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    app:cardCornerRadius="30dp"
-                    app:cardElevation="4dp"
-                    android:layout_marginEnd="12dp">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/logo_feria"
-                        android:scaleType="centerCrop"/>
-                </androidx.cardview.widget.CardView>
-
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ATRACCIÓN Y CONCIERTOS"
-                        android:textColor="#FFFFFF"
-                        android:textSize="30dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:textColor="#FFFFFF"
-                        android:textSize="14sp"
-                        android:layout_marginTop="4dp" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonCard4"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:text="Mas"
-
-
-                android:textColor="#FFFFFF"
-                android:layout_marginTop="12dp"
-                android:layout_gravity="center_vertical"
-                android:textAllCaps="false" />
         </LinearLayout>
 
     </LinearLayout>
 </ScrollView>
-
