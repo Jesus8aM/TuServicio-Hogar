@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.tuserviciohogar.R
 import com.example.tuserviciohogar.utils.SessionManager
+import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -21,6 +22,7 @@ class RegisterFragment : Fragment() {
 
     private lateinit var sessionManager: SessionManager
     private var userRole: String = "cliente"
+    private var selectedCategory: String = ""
     private var cvUri: Uri? = null
     private lateinit var auth: FirebaseAuth
 
@@ -53,20 +55,11 @@ class RegisterFragment : Fragment() {
 
         val layoutCategory = view.findViewById<View>(R.id.layoutCategory)
         val layoutCV = view.findViewById<View>(R.id.layoutCV)
-        val spinnerCategory = view.findViewById<Spinner>(R.id.spinnerCategory)
 
         layoutCategory.visibility = if (userRole == "tecnico") View.VISIBLE else View.GONE
         layoutCV.visibility = if (userRole == "tecnico") View.VISIBLE else View.GONE
 
-        val categories = listOf(
-            "Plomería", "Electricidad", "Carpintería",
-            "Pintura", "Cerrajería", "Aire Acondicionado", "Otro"
-        )
-        spinnerCategory.adapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_item,
-            categories
-        ).also { it.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) }
+        configurarCategorias(view)
 
         view.findViewById<Button>(R.id.btnSeleccionarCV).setOnClickListener {
             val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
@@ -77,11 +70,16 @@ class RegisterFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.btnRegister).setOnClickListener {
-            val name     = view.findViewById<TextInputEditText>(R.id.etName).text.toString().trim()
-            val email    = view.findViewById<TextInputEditText>(R.id.etEmail).text.toString().trim()
-            val phone    = view.findViewById<TextInputEditText>(R.id.etPhone).text.toString().trim()
+            val name = view.findViewById<TextInputEditText>(R.id.etName).text.toString().trim()
+            val email = view.findViewById<TextInputEditText>(R.id.etEmail).text.toString().trim()
+            val phone = view.findViewById<TextInputEditText>(R.id.etPhone).text.toString().trim()
             val password = view.findViewById<TextInputEditText>(R.id.etPassword).text.toString().trim()
-            val category = if (userRole == "tecnico") spinnerCategory.selectedItem.toString() else ""
+            val category = if (userRole == "tecnico") selectedCategory else ""
+
+            if (userRole == "tecnico" && selectedCategory.isEmpty()) {
+                Toast.makeText(requireContext(), "Selecciona una especialidad", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
 
             if (userRole == "tecnico" && cvUri == null) {
                 Toast.makeText(requireContext(), "Por favor sube tu CV en PDF", Toast.LENGTH_SHORT).show()
@@ -92,6 +90,50 @@ class RegisterFragment : Fragment() {
                 registrarEnFirebase(name, email, phone, password, category)
             }
         }
+    }
+
+    private fun configurarCategorias(view: View) {
+        val categorias = mapOf(
+            R.id.cardPlomeria to "Plomería",
+            R.id.cardElectricidad to "Electricidad",
+            R.id.cardCarpinteria to "Carpintería",
+            R.id.cardPintura to "Pintura",
+            R.id.cardCerrajeria to "Cerrajería",
+            R.id.cardAire to "Aire Acondicionado"
+        )
+
+        categorias.forEach { (cardId, categoria) ->
+            view.findViewById<MaterialCardView>(cardId).setOnClickListener {
+                selectedCategory = categoria
+                limpiarSeleccionCategorias(view)
+                marcarCategoriaSeleccionada(view.findViewById(cardId))
+            }
+        }
+    }
+
+    private fun limpiarSeleccionCategorias(view: View) {
+        val ids = listOf(
+            R.id.cardPlomeria,
+            R.id.cardElectricidad,
+            R.id.cardCarpinteria,
+            R.id.cardPintura,
+            R.id.cardCerrajeria,
+            R.id.cardAire
+        )
+
+        ids.forEach { id ->
+            view.findViewById<MaterialCardView>(id).apply {
+                strokeColor = resources.getColor(R.color.border, null)
+                strokeWidth = 1
+                setCardBackgroundColor(resources.getColor(R.color.surface, null))
+            }
+        }
+    }
+
+    private fun marcarCategoriaSeleccionada(card: MaterialCardView) {
+        card.strokeColor = resources.getColor(R.color.primary, null)
+        card.strokeWidth = 4
+        card.setCardBackgroundColor(resources.getColor(R.color.primary_light, null))
     }
 
     private fun registrarEnFirebase(
@@ -106,12 +148,10 @@ class RegisterFragment : Fragment() {
 
                 val cvNombre = if (cvUri != null) obtenerNombreArchivo(cvUri!!) else ""
 
-                // Copiar PDF localmente
                 if (cvUri != null && cvNombre.isNotEmpty()) {
                     copiarPdfInterno(cvUri!!, cvNombre)
                 }
 
-                // Guardar en Realtime Database
                 val database = FirebaseDatabase.getInstance()
                 val userRef = database.getReference("usuarios").child(uid)
 
@@ -124,11 +164,12 @@ class RegisterFragment : Fragment() {
                     "category" to category,
                     "cvFileName" to cvNombre,
                     "isAvailable" to (userRole == "tecnico"),
-                    "rating" to 5.0
+                    "rating" to 5.0,
+                    "ratingSum" to 0.0,
+                    "ratingCount" to 0
                 )
 
                 userRef.setValue(userData).addOnSuccessListener {
-                    // Guardar sesión local
                     sessionManager.saveRegistration(name, email, phone, password, userRole, category)
                     sessionManager.saveSession(email, userRole, name)
                     sessionManager.saveCvInfo(cvNombre, cvUri?.toString() ?: "")
@@ -155,6 +196,7 @@ class RegisterFragment : Fragment() {
             val inputStream = requireContext().contentResolver.openInputStream(uri)
             val destFile = java.io.File(requireContext().filesDir, nombre)
             val outputStream = java.io.FileOutputStream(destFile)
+
             inputStream?.copyTo(outputStream)
             inputStream?.close()
             outputStream.close()
@@ -183,18 +225,22 @@ class RegisterFragment : Fragment() {
             Toast.makeText(requireContext(), "Ingresa tu nombre", Toast.LENGTH_SHORT).show()
             return false
         }
+
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(requireContext(), "Email inválido", Toast.LENGTH_SHORT).show()
             return false
         }
+
         if (phone.length < 10) {
             Toast.makeText(requireContext(), "Teléfono inválido", Toast.LENGTH_SHORT).show()
             return false
         }
+
         if (password.length < 6) {
             Toast.makeText(requireContext(), "Mínimo 6 caracteres", Toast.LENGTH_SHORT).show()
             return false
         }
+
         return true
     }
 }

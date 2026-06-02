@@ -47,6 +47,7 @@ dependencies {
     implementation("androidx.activity:activity-ktx:1.8.2") // o versión similar
     implementation(libs.androidx.constraintlayout)
     implementation(libs.material.v190)
+    implementation("com.google.android.material:material:1.12.0")
 
 
     // RecyclerView

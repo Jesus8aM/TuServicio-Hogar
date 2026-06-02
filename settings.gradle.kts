@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "My ApplicationFeria"
+rootProject.name = "TuServicio Hogar"
 include(":app")
