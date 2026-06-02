@@ -1,258 +1,294 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Banner principal -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="260dp"
-            android:background="#1565C0"
-            android:orientation="vertical"
+            android:background="@color/white"
             android:gravity="center"
-            android:padding="32dp">
+            android:orientation="vertical"
+            android:padding="28dp">
+
+            <ImageView
+                android:layout_width="210dp"
+                android:layout_height="90dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_tuserviciohogar"
+                android:layout_marginBottom="16dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="🔧"
-                android:textSize="56sp"
-                android:layout_marginBottom="12dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TuServicio Hogar"
-                android:textColor="#FFFFFF"
-                android:textSize="26sp"
+                android:text="Servicios del hogar a tu alcance"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
+                android:gravity="center"
+                android:layout_marginBottom="8dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Conectamos clientes con técnicos\nde confianza en tu zona"
-                android:textColor="#BBDEFB"
-                android:textSize="14sp"
-                android:gravity="center"/>
+                android:text="Conectamos clientes con técnicos de confianza en tu zona"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp"
+                android:gravity="center" />
 
         </LinearLayout>
 
-        <!-- Botones principales -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/border" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="24dp">
 
-
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRegistrarse"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="Iniciar Sesión"
+                android:text="Iniciar sesión"
+                android:textAllCaps="false"
                 android:textSize="16sp"
-                android:layout_marginBottom="24dp"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+                app:cornerRadius="16dp"
+                app:backgroundTint="@color/primary"
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
-        <!-- Sección ¿Cómo funciona? -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¿Cómo funciona?"
+            android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingStart="24dp"
             android:paddingEnd="24dp"
-            android:paddingBottom="16dp"/>
+            android:paddingBottom="16dp" />
 
-        <!-- Paso 1 -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/white"
-            android:padding="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:elevation="2dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:text="📍"
-                android:textSize="28sp"
-                android:gravity="center"/>
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/surface">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="12dp">
+                android:orientation="horizontal"
+                android:padding="18dp"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Marca tu domicilio"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="📍"
+                    android:textSize="28sp"
+                    android:gravity="center" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Indica dónde necesitas el servicio"
-                    android:textSize="13sp"
-                    android:alpha="0.6"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Marca tu domicilio"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Indica dónde necesitas el servicio"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Paso 2 -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/white"
-            android:padding="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:elevation="2dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:text="🔧"
-                android:textSize="28sp"
-                android:gravity="center"/>
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/surface">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="12dp">
+                android:orientation="horizontal"
+                android:padding="18dp"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Elige tu servicio"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="🔧"
+                    android:textSize="28sp"
+                    android:gravity="center" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Plomería, electricidad, carpintería y más"
-                    android:textSize="13sp"
-                    android:alpha="0.6"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Elige tu servicio"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plomería, electricidad, carpintería y más"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Paso 3 -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/white"
-            android:padding="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:elevation="2dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:text="⭐"
-                android:textSize="28sp"
-                android:gravity="center"/>
+            android:layout_marginBottom="10dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/surface">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="12dp">
+                android:orientation="horizontal"
+                android:padding="18dp"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Técnicos verificados"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="⭐"
+                    android:textSize="28sp"
+                    android:gravity="center" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Con calificaciones reales de otros usuarios"
-                    android:textSize="13sp"
-                    android:alpha="0.6"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Técnicos verificados"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Consulta calificaciones reales de otros usuarios"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-        <!-- Paso 4 -->
-        <LinearLayout
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/white"
-            android:padding="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="32dp"
-            android:elevation="2dp"
-            android:gravity="center_vertical">
-
-            <TextView
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:text="✅"
-                android:textSize="28sp"
-                android:gravity="center"/>
+            app:cardCornerRadius="18dp"
+            app:cardElevation="3dp"
+            app:cardBackgroundColor="@color/surface">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:layout_marginStart="12dp">
+                android:orientation="horizontal"
+                android:padding="18dp"
+                android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Servicio completado"
-                    android:textSize="15sp"
-                    android:textStyle="bold"/>
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="✅"
+                    android:textSize="28sp"
+                    android:gravity="center" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Paga y califica al técnico al finalizar"
-                    android:textSize="13sp"
-                    android:alpha="0.6"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Servicio completado"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Paga y califica al técnico al finalizar"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
+
 </ScrollView>

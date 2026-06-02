@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.example.tuserviciohogar.R
 import com.example.tuserviciohogar.utils.SessionManager
 import com.google.firebase.database.*
-import com.example.tuserviciohogar.R
 
 class GalleryFragment : Fragment() {
 
@@ -30,36 +30,37 @@ class GalleryFragment : Fragment() {
         val uid = sessionManager.getUid()
         val rol = sessionManager.getRole()
 
-        android.util.Log.d("HISTORIAL", "UID: '$uid' ROL: '$rol'")
-        android.util.Log.d("HISTORIAL", "isLoggedIn: ${sessionManager.isLoggedIn()}")
-
         cargarHistorial(uid, rol, view)
     }
 
     private fun cargarHistorial(uid: String, rol: String, view: View) {
-        val layoutLista = view.findViewById<LinearLayout>(R.id.layoutListaServicios)
-        val tvVacio = view.findViewById<TextView>(R.id.tvSinServicios)
 
-        android.util.Log.d("HISTORIAL", "Cargando historial para uid: $uid, rol: $rol")
+        val layoutLista =
+            view.findViewById<LinearLayout>(R.id.layoutListaServicios)
+
+        val tvVacio =
+            view.findViewById<TextView>(R.id.tvSinServicios)
 
         val ref = if (rol == "tecnico") {
             FirebaseDatabase.getInstance()
-                .getReference("historial_tecnico").child(uid)
+                .getReference("historial_tecnico")
+                .child(uid)
         } else {
             FirebaseDatabase.getInstance()
-                .getReference("historial").child(uid)
+                .getReference("historial")
+                .child(uid)
         }
 
         historialListener = object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (!isAdded) return
 
-                android.util.Log.d("HISTORIAL", "Datos recibidos: ${snapshot.childrenCount} servicios")
-                android.util.Log.d("HISTORIAL", "Existe: ${snapshot.exists()}")
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (!isAdded) return
 
                 layoutLista.removeAllViews()
 
                 if (!snapshot.exists() || snapshot.childrenCount == 0L) {
+
                     tvVacio.visibility = View.VISIBLE
                     layoutLista.visibility = View.GONE
                     return
@@ -71,19 +72,30 @@ class GalleryFragment : Fragment() {
                 val servicios = snapshot.children.toList().reversed()
 
                 for (servicio in servicios) {
-                    android.util.Log.d("HISTORIAL", "Servicio: ${servicio.key} -> ${servicio.value}")
-                    val direccion = servicio.child("direccion")
-                        .getValue(String::class.java) ?: ""
-                    val descripcion = servicio.child("descripcion")
-                        .getValue(String::class.java) ?: ""
-                    val categoria = servicio.child("categoria")
-                        .getValue(String::class.java) ?: ""
-                    val fecha = servicio.child("fecha")
-                        .getValue(Long::class.java) ?: 0L
-                    val clienteNombre = servicio.child("clienteNombre")
-                        .getValue(String::class.java) ?: ""
-                    val tecnicoNombre = servicio.child("tecnicoNombre")
-                        .getValue(String::class.java) ?: ""
+
+                    val direccion =
+                        servicio.child("direccion")
+                            .getValue(String::class.java) ?: ""
+
+                    val descripcion =
+                        servicio.child("descripcion")
+                            .getValue(String::class.java) ?: ""
+
+                    val categoria =
+                        servicio.child("categoria")
+                            .getValue(String::class.java) ?: ""
+
+                    val fecha =
+                        servicio.child("fecha")
+                            .getValue(Long::class.java) ?: 0L
+
+                    val clienteNombre =
+                        servicio.child("clienteNombre")
+                            .getValue(String::class.java) ?: ""
+
+                    val tecnicoNombre =
+                        servicio.child("tecnicoNombre")
+                            .getValue(String::class.java) ?: ""
 
                     val fechaStr = java.text.SimpleDateFormat(
                         "dd/MM/yyyy HH:mm",
@@ -91,14 +103,27 @@ class GalleryFragment : Fragment() {
                     ).format(java.util.Date(fecha))
 
                     val card = LayoutInflater.from(requireContext())
-                        .inflate(R.layout.item_servicio_reciente, layoutLista, false)
+                        .inflate(
+                            R.layout.item_servicio_reciente,
+                            layoutLista,
+                            false
+                        )
 
-                    card.findViewById<TextView>(R.id.tvItemCategoria).text = "🔧 $categoria"
-                    card.findViewById<TextView>(R.id.tvItemDescripcion).text = descripcion
-                    card.findViewById<TextView>(R.id.tvItemDireccion).text = "📍 $direccion"
-                    card.findViewById<TextView>(R.id.tvItemFecha).text = fechaStr
+                    card.findViewById<TextView>(R.id.tvItemCategoria).text =
+                        "🔧 $categoria"
 
-                    val tvPersona = card.findViewById<TextView>(R.id.tvItemPersona)
+                    card.findViewById<TextView>(R.id.tvItemDescripcion).text =
+                        descripcion
+
+                    card.findViewById<TextView>(R.id.tvItemDireccion).text =
+                        "📍 $direccion"
+
+                    card.findViewById<TextView>(R.id.tvItemFecha).text =
+                        fechaStr
+
+                    val tvPersona =
+                        card.findViewById<TextView>(R.id.tvItemPersona)
+
                     if (rol == "tecnico") {
                         tvPersona.text = "👤 Cliente: $clienteNombre"
                     } else {
@@ -110,7 +135,6 @@ class GalleryFragment : Fragment() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                android.util.Log.e("HISTORIAL", "Error: ${error.message}")
             }
         }
 
@@ -119,6 +143,7 @@ class GalleryFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
+
         historialListener?.let {
             FirebaseDatabase.getInstance()
                 .getReference("historial")

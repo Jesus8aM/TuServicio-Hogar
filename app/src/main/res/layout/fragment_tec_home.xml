@@ -1,155 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Banner de bienvenida -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:background="#1565C0"
+            android:layout_height="220dp"
+            android:background="@color/white"
             android:orientation="vertical"
             android:gravity="center"
             android:padding="24dp">
+
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="80dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_tuserviciohogar"
+                android:layout_marginBottom="12dp"/>
 
             <TextView
                 android:id="@+id/tvTecSaludo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="¡Hola!"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="6dp"/>
 
             <TextView
                 android:id="@+id/tvTecCategoria"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Especialidad"
-                android:textColor="#BBDEFB"
+                android:textColor="@color/text_secondary"
                 android:textSize="16sp"/>
-
         </LinearLayout>
 
-        <!-- Estado de disponibilidad -->
-        <LinearLayout
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/border"/>
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@android:color/white"
-            android:padding="16dp"
-            android:layout_marginBottom="8dp"
-            android:gravity="center_vertical"
-            android:elevation="2dp">
+            android:layout_margin="16dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface">
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="horizontal"
+                android:padding="18dp"
+                android:gravity="center_vertical">
 
-                <TextView
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Estado"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/tvEstadoDisponibilidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🟢 Disponible"
+                        android:textColor="@color/text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchDisponible"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Estado"
-                    android:textSize="12sp"
-                    android:alpha="0.5"/>
-
-                <TextView
-                    android:id="@+id/tvEstadoDisponibilidad"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🟢 Disponible"
-                    android:textSize="16sp"
-                    android:textStyle="bold"/>
-
+                    android:checked="true"/>
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.switchmaterial.SwitchMaterial
-                android:id="@+id/switchDisponible"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"/>
-
-        </LinearLayout>
-
-        <!-- Resumen rápido -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="16dp">
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
 
-            <!-- Servicios hoy -->
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTecServicios"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@android:color/white"
                 android:layout_marginEnd="8dp"
-                android:elevation="2dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/surface">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"
-                    android:textSize="32sp"
-                    android:textStyle="bold"
-                    android:textColor="#1565C0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Servicios hoy"
-                    android:textSize="12sp"
-                    android:alpha="0.6"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Servicios hoy"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <!-- Calificación -->
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTecPerfil"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@android:color/white"
                 android:layout_marginStart="8dp"
-                android:elevation="2dp">
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/surface">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="5.0"
-                    android:textSize="32sp"
-                    android:textStyle="bold"
-                    android:textColor="#1565C0"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⭐ Calificación"
-                    android:textSize="12sp"
-                    android:alpha="0.6"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5.0"
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/primary"/>
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⭐ Calificación"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
 
-        <!-- Solicitudes recientes -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTecSolicitudes"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="12dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="20dp"
+                android:text="🔔 Ver solicitudes disponibles"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardTecServicioActivo"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/surface">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:padding="20dp"
+                android:text="📍 Ir a servicio activo"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </com.google.android.material.card.MaterialCardView>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Solicitudes recientes"
+            android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingStart="16dp"
@@ -174,11 +247,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="No hay solicitudes recientes"
-                android:textSize="16sp"
-                android:alpha="0.5"/>
-
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"/>
         </LinearLayout>
 
     </LinearLayout>
-
 </ScrollView>

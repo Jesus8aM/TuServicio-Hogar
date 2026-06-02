@@ -3,58 +3,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:background="@color/background">
 
-    <!-- Encabezado -->
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#1565C0"
-        android:orientation="vertical"
+        android:layout_height="140dp"
+        android:background="@color/white"
         android:gravity="center"
-        android:padding="24dp">
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_tuserviciohogar" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mis Servicios"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:textStyle="bold"/>
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="8dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Historial de servicios realizados"
-            android:textColor="#BBDEFB"
             android:textSize="13sp"
-            android:layout_marginTop="4dp"/>
+            android:textColor="@color/text_secondary" />
 
     </LinearLayout>
 
-    <!-- Sin servicios -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0" />
+
+    <!-- ESTE ID ES EL QUE NECESITA TU KOTLIN -->
     <TextView
         android:id="@+id/tvSinServicios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="🔍 Aún no tienes servicios"
-        android:textSize="16sp"
         android:gravity="center"
-        android:alpha="0.5"
-        android:padding="48dp"
-        android:visibility="gone"/>
+        android:padding="24dp"
+        android:text="Aún no tienes servicios"
+        android:textColor="@color/text_secondary"
+        android:textSize="16sp"
+        android:visibility="gone" />
 
-    <!-- Lista de servicios -->
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:id="@+id/layoutListaServicios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="8dp"/>
+            android:padding="12dp" />
 
     </ScrollView>
 

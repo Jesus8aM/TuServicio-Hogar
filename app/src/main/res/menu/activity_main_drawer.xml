@@ -4,27 +4,33 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
+
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home"
             android:title="Inicio" />
+
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_history"
             android:title="Mis Servicios" />
+
         <item
             android:id="@+id/nav_map"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_services"
             android:title="Solicitar Servicio"
             android:visible="false" />
+
         <item
             android:id="@+id/nav_viaje"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Servicio activo" />
+            android:icon="@drawable/ic_location"
+            android:title="Servicio Activo" />
+
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_person"
             android:title="Mi Perfil" />
+
     </group>
 
 </menu>

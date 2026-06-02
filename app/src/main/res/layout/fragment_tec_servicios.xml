@@ -3,34 +3,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5F5">
+    android:background="@color/background">
 
+    <!-- Header -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:background="#1565C0"
+        android:layout_height="220dp"
+        android:background="@color/white"
         android:orientation="vertical"
         android:gravity="center"
         android:padding="24dp">
+
+        <ImageView
+            android:layout_width="190dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo_tuserviciohogar"
+            android:layout_marginBottom="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mis Servicios"
-            android:textColor="#FFFFFF"
-            android:textSize="22sp"
-            android:textStyle="bold"/>
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Historial de servicios realizados"
-            android:textColor="#BBDEFB"
-            android:textSize="13sp"
-            android:layout_marginTop="4dp"/>
+            android:textColor="@color/text_secondary"
+            android:textSize="15sp"/>
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/border"/>
+
+    <!-- Estado vacío -->
     <LinearLayout
         android:id="@+id/layoutSinServicios"
         android:layout_width="match_parent"
@@ -42,16 +57,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="🔧"
-            android:textSize="48sp"
-            android:layout_marginBottom="8dp"/>
+            android:text=""
+            android:textSize="56sp"
+            android:layout_marginBottom="12dp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Aún no tienes servicios realizados"
-            android:textSize="16sp"
-            android:alpha="0.5"/>
+            android:textColor="@color/text_secondary"
+            android:textSize="16sp"/>
 
     </LinearLayout>
 

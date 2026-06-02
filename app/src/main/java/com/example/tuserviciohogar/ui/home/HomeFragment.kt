@@ -12,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.tuserviciohogar.utils.SessionManager
 import com.google.firebase.database.*
 import com.example.tuserviciohogar.R
+import com.google.android.material.card.MaterialCardView
 
 class HomeFragment : Fragment() {
 
@@ -51,22 +52,28 @@ class HomeFragment : Fragment() {
         }
 
         // Categorías
-        view.findViewById<LinearLayout>(R.id.cardPlomeria).setOnClickListener {
+        // Categorías
+        view.findViewById<MaterialCardView>(R.id.cardPlomeria).setOnClickListener {
             irAlMapaConCategoria("Plomería")
         }
-        view.findViewById<LinearLayout>(R.id.cardElectricidad).setOnClickListener {
+
+        view.findViewById<MaterialCardView>(R.id.cardElectricidad).setOnClickListener {
             irAlMapaConCategoria("Electricidad")
         }
-        view.findViewById<LinearLayout>(R.id.cardCarpinteria).setOnClickListener {
+
+        view.findViewById<MaterialCardView>(R.id.cardCarpinteria).setOnClickListener {
             irAlMapaConCategoria("Carpintería")
         }
-        view.findViewById<LinearLayout>(R.id.cardPintura).setOnClickListener {
+
+        view.findViewById<MaterialCardView>(R.id.cardPintura).setOnClickListener {
             irAlMapaConCategoria("Pintura")
         }
-        view.findViewById<LinearLayout>(R.id.cardCerrajeria).setOnClickListener {
+
+        view.findViewById<MaterialCardView>(R.id.cardCerrajeria).setOnClickListener {
             irAlMapaConCategoria("Cerrajería")
         }
-        view.findViewById<LinearLayout>(R.id.cardAire).setOnClickListener {
+
+        view.findViewById<MaterialCardView>(R.id.cardAire).setOnClickListener {
             irAlMapaConCategoria("Aire Acondicionado")
         }
 

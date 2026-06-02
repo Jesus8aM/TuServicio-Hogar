@@ -1,235 +1,286 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <!-- Banner de bienvenida -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:background="#1565C0"
+            android:layout_height="220dp"
+            android:background="@color/white"
             android:orientation="vertical"
             android:gravity="center"
             android:padding="24dp">
+
+            <ImageView
+                android:layout_width="190dp"
+                android:layout_height="80dp"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logo_tuserviciohogar"
+                android:layout_marginBottom="12dp"/>
 
             <TextView
                 android:id="@+id/tvSaludo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="¡Bienvenido!"
-                android:textColor="#FFFFFF"
+                android:textColor="@color/text_primary"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="6dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="¿Qué servicio necesitas hoy?"
-                android:textColor="#BBDEFB"
+                android:textColor="@color/text_secondary"
                 android:textSize="16sp"/>
-
         </LinearLayout>
 
-        <!-- Botón principal solicitar servicio -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/border"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSolicitarServicio"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="📍 Solicitar servicio ahora"
+                android:text="Solicitar servicio ahora"
+                android:textAllCaps="false"
                 android:textSize="16sp"
-                android:backgroundTint="#1565C0"/>
-
+                app:cornerRadius="16dp"
+                app:backgroundTint="@color/primary"/>
         </LinearLayout>
 
-        <!-- Título categorías -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Categorías de servicio"
+            android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:paddingBottom="12dp"/>
 
-        <!-- Grid de categorías -->
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:columnCount="2"
             android:padding="8dp">
 
-            <!-- Plomería -->
-            <LinearLayout
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardPlomeria"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/rounded_card_background"
-                android:elevation="4dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🔧"
-                    android:textSize="32sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Plomería"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/primary">
 
-            <!-- Electricidad -->
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔧"
+                        android:textSize="32sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Plomería"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardElectricidad"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/rounded_card_background"
-                android:elevation="4dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="⚡"
-                    android:textSize="32sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Electricidad"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/primary">
 
-            <!-- Carpintería -->
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡"
+                        android:textSize="32sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Electricidad"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardCarpinteria"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/rounded_card_background"
-                android:elevation="4dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🪵"
-                    android:textSize="32sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Carpintería"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/primary">
 
-            <!-- Pintura -->
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🪵"
+                        android:textSize="32sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carpintería"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardPintura"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/rounded_card_background"
-                android:elevation="4dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🎨"
-                    android:textSize="32sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Pintura"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/primary">
 
-            <!-- Cerrajería -->
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🎨"
+                        android:textSize="32sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Pintura"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardCerrajeria"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/rounded_card_background"
-                android:elevation="4dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="🔑"
-                    android:textSize="32sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Cerrajería"
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/primary">
 
-            <!-- Aire Acondicionado -->
-            <LinearLayout
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔑"
+                        android:textSize="32sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Cerrajería"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardAire"
                 android:layout_width="0dp"
-                android:layout_height="100dp"
+                android:layout_height="110dp"
                 android:layout_columnWeight="1"
                 android:layout_margin="8dp"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="@drawable/rounded_card_background"
-                android:elevation="4dp">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="❄️"
-                    android:textSize="32sp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Aire Acond."
-                    android:textColor="#FFFFFF"
-                    android:textSize="14sp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/primary">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="❄️"
+                        android:textSize="32sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Aire Acond."
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </GridLayout>
 
-        <!-- Título servicios recientes -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Servicios recientes"
+            android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingStart="16dp"
@@ -237,7 +288,6 @@
             android:paddingTop="8dp"
             android:paddingBottom="12dp"/>
 
-        <!-- Placeholder servicios recientes -->
         <LinearLayout
             android:id="@+id/layoutSinServicios"
             android:layout_width="match_parent"
@@ -253,6 +303,7 @@
                 android:orientation="vertical"
                 android:padding="8dp"
                 android:visibility="gone"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -264,9 +315,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Aún no tienes servicios"
-                android:textSize="16sp"
-                android:alpha="0.5"/>
-
+                android:textColor="@color/text_secondary"
+                android:textSize="16sp"/>
         </LinearLayout>
 
     </LinearLayout>

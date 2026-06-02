@@ -12,14 +12,12 @@
         android:orientation="vertical"
         android:padding="28dp">
 
-        <TextView
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center"
-            android:text="🏠"
-            android:textSize="38sp"
-            android:background="@color/primary_light"
+        <ImageView
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_tuserviciohogar"
+            android:adjustViewBounds="true"
             android:layout_marginBottom="16dp" />
 
         <TextView
