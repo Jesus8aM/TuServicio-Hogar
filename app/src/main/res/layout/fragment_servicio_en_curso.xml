@@ -1,109 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5">
+    android:background="@color/background">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="16dp">
 
-        <TextView
-            android:id="@+id/tvTituloServicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Servicio en curso"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
+        <!-- Encabezado -->
 
-        <TextView
-            android:id="@+id/tvClienteServicio"
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="14dp"
+            app:cardCornerRadius="20dp"
+            app:cardBackgroundColor="@color/primary">
 
-        <TextView
-            android:id="@+id/tvTecnicoServicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
 
-        <TextView
-            android:id="@+id/tvCategoriaServicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:id="@+id/tvTituloServicio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Servicio en curso"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvDescripcionServicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="8dp"/>
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/tvDireccionServicio"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="16sp"
-            android:layout_marginBottom="24dp"/>
+        </com.google.android.material.card.MaterialCardView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Resumen de cobro"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="12dp"/>
+        <!-- Datos del servicio -->
 
-        <TextView
-            android:id="@+id/tvMontoBase"
-            android:layout_width="wrap_content"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tarifa base: $0.00"
-            android:textSize="16sp"
-            android:layout_marginBottom="6dp"/>
+            android:layout_marginBottom="14dp"
+            app:cardCornerRadius="18dp">
 
-        <TextView
-            android:id="@+id/tvMontoAdicional"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Monto adicional: $0.00"
-            android:textSize="16sp"
-            android:layout_marginBottom="6dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
 
-        <TextView
-            android:id="@+id/tvMontoTotal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Total: $0.00"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="6dp"/>
+                <TextView
+                    android:text="Información del servicio"
+                    android:textStyle="bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/tvComisionApp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Comisión app: $0.00"
-            android:textSize="14sp"
-            android:alpha="0.7"
-            android:layout_marginBottom="6dp"/>
+                <TextView
+                    android:id="@+id/tvClienteServicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="8dp"/>
 
-        <TextView
-            android:id="@+id/tvGananciaTecnico"
-            android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/tvTecnicoServicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvCategoriaServicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvDescripcionServicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvDireccionServicio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Cobro -->
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ganancia técnico: $0.00"
-            android:textSize="14sp"
-            android:alpha="0.7"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="14dp"
+            app:cardCornerRadius="18dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Resumen de cobro"
+                    android:textColor="@color/text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+
+                <TextView
+                    android:id="@+id/tvMontoBase"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tarifa base: $0.00"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <TextView
+                    android:id="@+id/tvMontoAdicional"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Monto adicional: $0.00"
+                    android:textSize="15sp"
+                    android:layout_marginBottom="6dp"/>
+
+                <TextView
+                    android:id="@+id/tvMontoTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total: $0.00"
+                    android:textColor="@color/primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/tvComisionApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Comisión app: $0.00"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"/>
+
+                <TextView
+                    android:id="@+id/tvGananciaTecnico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Ganancia técnico: $0.00"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="13sp"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Técnico -->
 
         <LinearLayout
             android:id="@+id/layoutMontoTecnico"
@@ -111,44 +177,56 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone"
-            android:layout_marginBottom="16dp">
+            android:layout_marginBottom="14dp">
 
             <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Monto adicional por materiales o trabajo extra">
+                android:hint="Monto adicional">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etMontoAdicional"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal" />
+                    android:inputType="numberDecimal"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEnviarMonto"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
-                android:text="ENVIAR MONTO"
-                android:layout_marginTop="12dp"/>
+                android:layout_marginTop="12dp"
+                android:text="Enviar monto"
+                android:textAllCaps="false"
+                app:cornerRadius="16dp"/>
 
         </LinearLayout>
 
-        <Button
+        <!-- Cliente -->
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnAceptarMonto"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="ACEPTAR MONTO"
+            android:text="Aceptar monto"
+            android:textAllCaps="false"
             android:visibility="gone"
+            app:cornerRadius="16dp"
             android:layout_marginBottom="12dp"/>
 
-        <Button
+        <!-- Finalizar -->
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnTerminarServicio"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:text="TERMINAR SERVICIO"
-            android:visibility="gone"/>
+            android:text="Terminar servicio"
+            android:textAllCaps="false"
+            android:visibility="gone"
+            app:backgroundTint="@color/success"
+            app:cornerRadius="16dp"/>
 
     </LinearLayout>
 
